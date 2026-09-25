@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Ürituste korraldamine" id="ioF0zTZn70Mx1T9ui_Rn">
+    <mxGraphModel dx="2054" dy="1081" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="G5qgDwumQlR3UizJAeFr-545" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Event&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;name: string&lt;br&gt;startTime: datetime&lt;br&gt;description: string&lt;br&gt;capacity: int&lt;br&gt;price: decimal&lt;br&gt;schedule: string&lt;br&gt;summary: string" vertex="1">
+          <mxGeometry height="190" width="190" x="495.3333333333335" y="559.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-546" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;Customer&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;firstName: string&lt;br&gt;lastName: string&lt;br&gt;email: string&lt;br&gt;phone: string" vertex="1">
+          <mxGeometry height="140" width="170" x="755.3333333333335" y="559.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-547" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;Registration&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;registeredAt: datetime&lt;br&gt;status: RegistrationStatus" vertex="1">
+          <mxGeometry height="110" width="190" x="575.3333333333335" y="819.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-548" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="&lt;b&gt;Invoice&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;invoiceNumber: string&lt;br&gt;issueDate: date&lt;br&gt;dueDate: date&lt;br&gt;amount: decimal&lt;br&gt;status: InvoiceStatus" vertex="1">
+          <mxGeometry height="150" width="190" x="845.3333333333335" y="809.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-549" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Payment&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;paymentDate: datetime&lt;br&gt;amount: decimal&lt;br&gt;status: PaymentStatus&lt;br&gt;paymentMethod: string" vertex="1">
+          <mxGeometry height="140" width="180" x="1105.3333333333335" y="809.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-550" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;SystemUser&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;firstName: string&lt;br&gt;lastName: string&lt;br&gt;email: string" vertex="1">
+          <mxGeometry height="120" width="180" x="1105.3333333333335" y="559.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-551" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;EventFile&lt;/b&gt;&lt;hr&gt;id: int&lt;br&gt;fileName: string&lt;br&gt;filePath: string&lt;br&gt;uploadedAt: datetime" vertex="1">
+          <mxGeometry height="120" width="190" x="495.3333333333335" y="1019.666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-552" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-545" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-547" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-553" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-546" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-547" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-554" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-547" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-548" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-555" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-548" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-549" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-556" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-545" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-551" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-557" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-550" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-548" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G5qgDwumQlR3UizJAeFr-558" edge="1" parent="1" source="G5qgDwumQlR3UizJAeFr-550" style="endArrow=none;html=1;strokeWidth=1.5;" target="G5qgDwumQlR3UizJAeFr-549" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
