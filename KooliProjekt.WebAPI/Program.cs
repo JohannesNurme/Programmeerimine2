@@ -1,4 +1,5 @@
 using FluentValidation;
+using KooliProjekt.Application;
 using KooliProjekt.Application.Behaviors;
 using KooliProjekt.Application.Data;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace KooliProjekt.WebAPI
 {
@@ -18,7 +21,6 @@ namespace KooliProjekt.WebAPI
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-            // Add services to the container.
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
@@ -41,6 +43,27 @@ namespace KooliProjekt.WebAPI
 
             var app = builder.Build();
 
+            // Automaatne migreerimine ja andmete tekitamine käivitamisel
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+
+                    // Rakendab tegemata migratsioonid (loob vajadusel andmebaasi ja tabelid)
+                    context.Database.Migrate();
+
+                    // Täidab tabelid algandmetega
+                    SeedData.Initialize(services);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "Andmebaasi algandmete täitmisel tekkis viga.");
+                }
+            }
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -49,7 +72,6 @@ namespace KooliProjekt.WebAPI
             }
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
