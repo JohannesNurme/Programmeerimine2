@@ -24,7 +24,7 @@ namespace KooliProjekt.Application
                 var firstNames = new[] { "Kati", "Mati", "Jaan", "Mari", "Karl", "Anni", "Peeter", "Eva", "Kristjan", "Laura" };
                 var lastNames = new[] { "Tamm", "Kask", "Saar", "Sepp", "Mägi", "Kukk", "Rebane", "Koppel", "Ilves", "Lepik" };
 
-                // 1. KLIENDID (Customers) - 35 rida
+                // 1. KLIENDID (Customers) 
                 for (int i = 1; i <= 35; i++)
                 {
                     var fName = firstNames[random.Next(firstNames.Length)];
@@ -40,7 +40,7 @@ namespace KooliProjekt.Application
                 }
                 context.SaveChanges();
 
-                // 2. KASUTAJAD (SystemUsers) - 35 rida
+                // 2. KASUTAJAD (SystemUsers) 
                 for (int i = 1; i <= 35; i++)
                 {
                     var fName = firstNames[random.Next(firstNames.Length)];
@@ -55,7 +55,7 @@ namespace KooliProjekt.Application
                 }
                 context.SaveChanges();
 
-                // 3. SÜNDMUSED (Events) - 35 rida
+                // 3. SÜNDMUSED (Events) 
                 var eventTitles = new[] { "Koolitus", "Seminar", "Veebinar", "Töötuba", "Konverents" };
                 for (int i = 1; i <= 35; i++)
                 {
@@ -70,7 +70,7 @@ namespace KooliProjekt.Application
                 }
                 context.SaveChanges();
 
-                // 4. REGISTREERIMISED (Registrations) - 35 rida
+                // 4. REGISTREERIMISED (Registrations) 
                 var customers = context.Customers.ToList();
                 var events = context.Events.ToList();
 
@@ -86,7 +86,7 @@ namespace KooliProjekt.Application
                 }
                 context.SaveChanges();
 
-                // 5. ARVED (Invoices) - 35 rida
+                // 5. ARVED (Invoices) 
                 var registrations = context.Registrations.ToList();
                 var systemUsers = context.SystemUsers.ToList();
 
