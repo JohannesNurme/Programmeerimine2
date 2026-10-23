@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
-using MediatR;
-using KooliProjekt.Application.Data;
+﻿using MediatR;
+using KooliProjekt.Application.Dto;
+using KooliProjekt.Application.Infrastructure.Paging;
+using KooliProjekt.Application.Infrastructure.Results;
 
 namespace KooliProjekt.Application.Features.SystemUsers
 {
-    public class GetSystemUserListQuery : IRequest<List<SystemUser>>
+    public class GetSystemUserListQuery : IRequest<OperationResult<PagedResult<SystemUserDto>>>
     {
+        public int Page { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
     }
 }

@@ -1,15 +1,13 @@
-﻿using KooliProjekt.Application.Data;
-using KooliProjekt.Application.Features.SystemUsers;
+﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using KooliProjekt.Application.Features.SystemUsers;
 
 namespace KooliProjekt.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SystemUsersController : ApiControllerBase
+    public class SystemUsersController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -19,15 +17,20 @@ namespace KooliProjekt.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<SystemUser>>> Get()
+        public async Task<IActionResult> Get([FromQuery] GetSystemUserListQuery query)
         {
-            var query = new GetSystemUserListQuery();
             var result = await _mediator.Send(query);
-            return Ok(result);
+
+            if (result == null)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result.Value);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<SystemUser>> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             if (id <= 0)
             {
